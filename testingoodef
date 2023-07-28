@@ -1,7 +1,7 @@
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 local Window = Rayfield:CreateWindow({
-    Name = "Crazy AC (Anomaly & Comer)",
+    Name = "🐵 Monkey HUB (Anomaly & Comer)",
     LoadingTitle = "Crazy AC Loading...",
     LoadingSubtitle = "by OkkesKor ",
     ConfigurationSaving = {
