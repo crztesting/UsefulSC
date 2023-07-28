@@ -1,0 +1,118 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Crazy AC (Anomaly & Comer)",
+    LoadingTitle = "Crazy AC Loading...",
+    LoadingSubtitle = "by OkkesKor ",
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil, -- Create a custom folder for your hub/game
+       FileName = "Crazy AC"
+    },
+    Discord = {
+       Enabled = false,
+       Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+    KeySystem = true, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Crazy AC",
+       Subtitle = "Key System",
+       Note = "Discord Username anomaly10 İnvite Crazy AC",
+       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = {"Comar Adamdir"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    }
+ })
+
+ local Tab = Window:CreateTab("🏠 | Main") -- Title, Image
+ local Section = Tab:CreateSection("Farm")
+
+ local Toggle = Tab:CreateToggle({
+    Name = "Auto Collect Lootbag",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        _G.toggle = true
+        while _G.toggle do
+        wait()
+        -- Orbs
+        
+        for i,v in pairs(game.Workspace["__THINGS"].Orbs:GetDescendants()) do
+        if v:IsA("Part") then
+        v.CFrame = CFrame.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position)
+        end
+        end
+        
+        -- Lootbags
+        
+        for i,v in pairs(game.Workspace["__THINGS"].Lootbags:GetDescendants()) do
+        if v:IsA("MeshPart") then
+        v.CFrame = CFrame.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position)
+        end
+        end
+        end
+        Toggle:Set(false)
+    end,
+ })
+
+ local Button = Tab:CreateButton({
+    Name = "Lag Reducer Plus",
+    Callback = function()
+        game:GetService("RunService"):Set3dRenderingEnabled(false)
+    end,
+ })
+
+ local Toggle = Tab:CreateToggle({
+    Name = "Game AFK",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        game:GetService("Players").LocalPlayer.PlayerScripts["Idle Tracking"].Enabled = false
+    end,
+ })
+
+ local Toggle = Tab:CreateToggle({
+    Name = "Anti AFK",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        game:GetService("Players").LocalPlayer.Idled:connect(
+   function()
+       game:GetService("VirtalUser"):ClickButton2(Vector2.new())
+   end
+)
+    end,
+ })
+
+ local Tab = Window:CreateTab("☄️ | Event") -- Title, Image
+ local Section = Tab:CreateSection("Event Farmer")
+
+ local Toggle = Tab:CreateToggle({
+    Name = "Auto Collect Orb",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+    -- The function that takes place when the toggle is pressed
+    -- The variable (Value) is a boolean on whether the toggle is true or false
+    end,
+ })
+
+ local Toggle = Tab:CreateToggle({
+    Name = "Auto Yeet Pet",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+    -- The function that takes place when the toggle is pressed
+    -- The variable (Value) is a boolean on whether the toggle is true or false
+    end,
+ })
+
+
+
+
+
+
+
+Rayfield:LoadConfiguration()
