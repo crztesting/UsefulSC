@@ -1,5 +1,3 @@
-setfpscap(20)
-
 getgenv().AuthKey = "HUGE_8hpPoDt3FNr0"
 getgenv().LoadSettings = {
     Example_Setting = Example_Value
