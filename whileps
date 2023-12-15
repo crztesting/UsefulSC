@@ -1,0 +1,8 @@
+_G.autoWhile = true
+while true do taskwait()
+    local x = 415.8285827636719
+    local y = 16.237483978271484
+    local z = 2665.518310546875
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(x, y, z)
+end
+end
