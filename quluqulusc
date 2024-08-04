@@ -1,7 +1,0 @@
-getgenv().AuthKey = "HUGE_8hpPoDt3FNr0"
-getgenv().LoadSettings = {
-    Example_Setting = Example_Value
-}
-loadstring(game:HttpGet("https://HugeGames.io/ps99"))()
-
-setfpscap(20)
